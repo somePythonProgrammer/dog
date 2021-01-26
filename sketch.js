@@ -102,5 +102,10 @@ function FeedDog(){
   if(foodS>0){
   hunger+=10
   }
-  writestock(foodS-1)
+  if(foodS>1){
+  writestock(foodS)
+  }
+  else{
+    database.ref('/').update({food:foodS-1});
+  }
 }
